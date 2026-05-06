@@ -1,0 +1,56 @@
+{
+  "title": "Многое Происходит,",
+  "titleSecond": "Мы Ведем об Этом Блог.",
+  "bigPost": {
+    "img": "./assets/img/blog1.png",
+    "alt": "blog1",
+    "date": "Сент 26, 2021",
+    "title": "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
+    "link": {
+      "title": "Читать полную статью",
+      "href": "#"
+    }
+  },
+  "smallPosts": [
+    {
+      "img": "./assets/img/blog2.png",
+      "alt": "blog2",
+      "date": "Сент 26, 2021",
+      "title": "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
+      "link": {
+        "title": "Читать полную статью",
+        "href": "#"
+      }
+    },
+    {
+      "img": "./assets/img/blog3.png",
+      "alt": "blog3",
+      "date": "Сент 26, 2021",
+      "title": "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
+      "link": {
+        "title": "Читать полную статью",
+        "href": "#"
+      }
+    },
+    {
+      "img": "./assets/img/blog4.png",
+      "alt": "blog4",
+      "date": "Сент 26, 2021",
+      "title": "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
+      "link": {
+        "title": "Читать полную статью",
+        "href": "#"
+      }
+    },
+    {
+      "img": "./assets/img/blog5.png",
+      "alt": "blog5",
+      "date": "Сент 26, 2021",
+      "title": "GPT-3 и Openai – это будущее. Давайте разберемся, как это?",
+      "link": {
+        "title": "Читать полную статью",
+        "href": "#"
+      }
+    }
+  ]
+}
