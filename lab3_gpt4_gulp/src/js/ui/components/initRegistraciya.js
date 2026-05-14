@@ -1,8 +1,11 @@
 import registraciyaData from "../../mockData/registraciyaData.js";
-import registraciyaTemplate from "../templates/registraciyaTemplate.js";
+import { registraciyaTemplate } from "../templates/registraciyaTemplate.js";
 
-const initRegistraciya = (node) => {
-  node.innerHTML = registraciyaTemplate(registraciyaData);
+const initRegistraciya = (registraciyaNode) => {
+  registraciyaNode.insertAdjacentHTML(
+    "beforeend",
+    registraciyaTemplate(registraciyaData)
+  );
 };
 
 export default initRegistraciya;

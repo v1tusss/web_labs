@@ -1,4 +1,4 @@
-const bigPostTemplate = (post) => {
+export const bigPostTemplate = (post) => {
   return `
     <div class="blog_big">
       <div class="blog_img">
@@ -14,7 +14,7 @@ const bigPostTemplate = (post) => {
   `;
 };
 
-const smallPostTemplate = (post) => {
+export const smallPostTemplate = (post) => {
   return `
     <div class="blog_small">
       <div class="blog_small_img">
@@ -30,7 +30,7 @@ const smallPostTemplate = (post) => {
   `;
 };
 
-const blogTemplate = (data) => {
+export const blogTemplate = (data) => {
   const smallPosts = data.smallPosts
     .map((post) => smallPostTemplate(post))
     .join("");
@@ -51,5 +51,3 @@ const blogTemplate = (data) => {
     </div>
   `;
 };
-
-export default blogTemplate;

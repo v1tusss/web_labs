@@ -1,4 +1,4 @@
-const footerColumnTemplate = (column) => {
+export const footerColumnTemplate = (column) => {
   const links = column.links
     .map((item) => {
       return `<a href="#" class="footer_link">${item}</a>`;
@@ -13,7 +13,7 @@ const footerColumnTemplate = (column) => {
   `;
 };
 
-const footerTemplate = (data) => {
+export const footerTemplate = (data) => {
   const address = data.address.join("<br />");
 
   const columns = data.columns
@@ -45,5 +45,3 @@ const footerTemplate = (data) => {
     </div>
   `;
 };
-
-export default footerTemplate;

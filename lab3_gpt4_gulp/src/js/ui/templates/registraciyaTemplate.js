@@ -1,4 +1,4 @@
-const registraciyaTemplate = (data) => {
+export const registraciyaTemplate = (data) => {
   return `
     <div class="registraciya_box">
       <div class="registraciya_text">
@@ -12,5 +12,3 @@ const registraciyaTemplate = (data) => {
     </div>
   `;
 };
-
-export default registraciyaTemplate;

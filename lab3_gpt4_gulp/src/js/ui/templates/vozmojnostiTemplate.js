@@ -1,4 +1,4 @@
-const vozmojnostiTemplate = (data) => {
+export const vozmojnostiTemplate = (data) => {
   return `
     <div class="vozmojnosti_container">
       <div class="vozmojnosti_img">
@@ -19,5 +19,3 @@ const vozmojnostiTemplate = (data) => {
     </div>
   `;
 };
-
-export default vozmojnostiTemplate;

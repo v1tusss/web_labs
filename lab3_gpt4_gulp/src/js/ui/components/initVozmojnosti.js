@@ -1,8 +1,11 @@
 import vozmojnostiData from "../../mockData/vozmojnostiData.js";
-import vozmojnostiTemplate from "../templates/vozmojnostiTemplate.js";
+import { vozmojnostiTemplate } from "../templates/vozmojnostiTemplate.js";
 
-const initVozmojnosti = (node) => {
-  node.innerHTML = vozmojnostiTemplate(vozmojnostiData);
+const initVozmojnosti = (vozmojnostiNode) => {
+  vozmojnostiNode.insertAdjacentHTML(
+    "beforeend",
+    vozmojnostiTemplate(vozmojnostiData)
+  );
 };
 
 export default initVozmojnosti;

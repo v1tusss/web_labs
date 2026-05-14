@@ -3,10 +3,10 @@ import initHero from "./../components/initHero.js";
 import initBrands from "./../components/initBrands.js";
 import initWhatIsGpt from "./../components/initWhatIsGpt.js";
 import initFutureHere from "./../components/initFutureHere.js";
-import initVozmojnosti from "../components/initVozmojnosti.js";
-import initRegistraciya from "../components/initRegistraciya.js";
-import initBlog from "../components/initBlog.js";
-import initFooter from "../components/initFooter.js";
+import initVozmojnosti from "./../components/initVozmojnosti.js";
+import initRegistraciya from "./../components/initRegistraciya.js";
+import initBlog from "./../components/initBlog.js";
+import initFooter from "./../components/initFooter.js";
 
 const createHomePageTemplate = (rootNode) => {
   // формируем шаблон базовых секций для дальнейшего монтирования в них
@@ -23,7 +23,7 @@ const createHomePageTemplate = (rootNode) => {
   <footer class="section footer"></footer>
 `;
 
-  rootNode.insertAdjacentHTML("beforeend", template); 
+  rootNode.insertAdjacentHTML("beforeend", template);
 };
 
 const homePage = () => {
@@ -51,17 +51,21 @@ const homePage = () => {
   const futureHereNode = rootNode.querySelector(".future_here");
   initFutureHere(futureHereNode);
 
+  // инициализация раздела "Возможности" с мок датой
   const vozmojnostiNode = rootNode.querySelector(".vozmojnosti");
-initVozmojnosti(vozmojnostiNode);
+  initVozmojnosti(vozmojnostiNode);
 
+  // инициализация раздела регистрации с мок датой
   const registraciyaNode = rootNode.querySelector(".registraciya");
-initRegistraciya(registraciyaNode);
+  initRegistraciya(registraciyaNode);
 
+  // инициализация раздела блога с мок датой
   const blogNode = rootNode.querySelector(".blog");
-initBlog(blogNode);
+  initBlog(blogNode);
 
+  // инициализация футера с мок датой
   const footerNode = rootNode.querySelector(".footer");
-initFooter(footerNode);
+  initFooter(footerNode);
 
   // инициализация бургера для адаптивного меню
   // initBurger(headerNode);
