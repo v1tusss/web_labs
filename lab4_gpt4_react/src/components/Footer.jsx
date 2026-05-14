@@ -1,11 +1,13 @@
 import footerData from "../mockData/footerData";
 
-const FooterColumn = ({ column }) => {
+export const FooterColumn = ({ column }) => {
+  const { title, links } = column;
+
   return (
     <div className="footer_col">
-      <h4 className="footer_name">{column.title}</h4>
+      <h4 className="footer_name">{title}</h4>
 
-      {column.links.map((item, index) => (
+      {links.map((item, index) => (
         <a href="#footer" className="footer_link" key={index}>
           {item}
         </a>
@@ -14,41 +16,66 @@ const FooterColumn = ({ column }) => {
   );
 };
 
+export const FooterTop = ({ footerTopData }) => {
+  const { title, titleSecond, button } = footerTopData;
+
+  return (
+    <div className="footer_top">
+      <h2 className="footer_big_title">
+        {title}
+        <br />
+        {titleSecond}
+      </h2>
+
+      <a href="#early-access" className="footer_btn">
+        {button}
+      </a>
+    </div>
+  );
+};
+
+export const FooterLogo = ({ logoData }) => {
+  const { logo, address, rights } = logoData;
+
+  return (
+    <div className="footer_col footer_logo_col">
+      <h3 className="footer_logo">{logo}</h3>
+
+      <p className="footer_text">
+        {address[0]}
+        <br />
+        {address[1]}
+      </p>
+
+      <p className="footer_text">{rights}</p>
+    </div>
+  );
+};
+
+export const FooterMiddle = ({ footerMiddleData }) => {
+  const { columns } = footerMiddleData;
+
+  return (
+    <div className="footer_middle">
+      <FooterLogo logoData={footerMiddleData} />
+
+      {columns.map((column, index) => (
+        <FooterColumn column={column} key={index} />
+      ))}
+    </div>
+  );
+};
+
 const Footer = () => {
+  const { copy } = footerData;
+
   return (
     <>
-      <div className="footer_top">
-        <h2 className="footer_big_title">
-          {footerData.title}
-          <br />
-          {footerData.titleSecond}
-        </h2>
-
-        <a href="#early-access" className="footer_btn">
-          {footerData.button}
-        </a>
-      </div>
-
-      <div className="footer_middle">
-        <div className="footer_col footer_logo_col">
-          <h3 className="footer_logo">{footerData.logo}</h3>
-
-          <p className="footer_text">
-            {footerData.address[0]}
-            <br />
-            {footerData.address[1]}
-          </p>
-
-          <p className="footer_text">{footerData.rights}</p>
-        </div>
-
-        {footerData.columns.map((column, index) => (
-          <FooterColumn column={column} key={index} />
-        ))}
-      </div>
+      <FooterTop footerTopData={footerData} />
+      <FooterMiddle footerMiddleData={footerData} />
 
       <div className="footer_bottom">
-        <p className="footer_copy">{footerData.copy}</p>
+        <p className="footer_copy">{copy}</p>
       </div>
     </>
   );

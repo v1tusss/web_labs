@@ -1,22 +1,29 @@
-const { isObjectHasProps } = require("./utils/validators");
+const { isArrayHasLength, isObjectHasProps } = require("./utils/validators");
 
 const isPostValid = (post) => {
+  // проверяем объект на наличие полей и соответствие типу "объект"
   isObjectHasProps(post, ["img", "alt", "date", "title", "link"]);
-  isObjectHasProps(post.link, ["title", "href"]);
+
+  const { link } = post;
+
+  // проверяем внутренний объект на наличие полей и соответствие типу "объект"
+  isObjectHasProps(link, ["title", "href"]);
 };
 
 const isBlogDataValid = (data) => {
+  // проверяем объект на наличие полей и соответствие типу "объект"
   isObjectHasProps(data, ["title", "titleSecond", "bigPost", "smallPosts"]);
 
-  isPostValid(data.bigPost);
+  const { bigPost, smallPosts } = data;
 
-  if (!Array.isArray(data.smallPosts)) {
-    throw new Error("smallPosts должен быть массивом");
-  }
+  // проверяем внутренний объект на наличие полей и соответствие типу "объект"
+  isPostValid(bigPost);
 
-  data.smallPosts.forEach((post) => {
-    isPostValid(post);
-  });
+  // проверяем внутренний массив на наличие полей и соответствие типу "массив"
+  isArrayHasLength(smallPosts);
+
+  // проверяем внутренние объекты на наличие полей и соответствие типу "объект"
+  smallPosts.forEach((post) => isPostValid(post));
 };
 
 module.exports = isBlogDataValid;

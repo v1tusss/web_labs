@@ -1,22 +1,25 @@
-const { isObjectHasProps } = require("./utils/validators");
+const { isArrayHasLength, isObjectHasProps } = require("./utils/validators");
 
 const isLinkValid = (link) => {
+  // проверяем объект на наличие полей и соответствие типу "объект"
   isObjectHasProps(link, ["title", "href"]);
 };
 
 const isFooterColumnValid = (column) => {
+  // проверяем объект на наличие полей и соответствие типу "объект"
   isObjectHasProps(column, ["title", "links"]);
 
-  if (!Array.isArray(column.links)) {
-    throw new Error("links должен быть массивом");
-  }
+  const { links } = column;
 
-  column.links.forEach((link) => {
-    isLinkValid(link);
-  });
+  // проверяем внутренний массив на наличие полей и соответствие типу "массив"
+  isArrayHasLength(links);
+
+  // проверяем внутренние объекты на наличие полей и соответствие типу "объект"
+  links.forEach((link) => isLinkValid(link));
 };
 
 const isFooterDataValid = (data) => {
+  // проверяем объект на наличие полей и соответствие типу "объект"
   isObjectHasProps(data, [
     "title",
     "titleSecond",
@@ -28,19 +31,17 @@ const isFooterDataValid = (data) => {
     "copy",
   ]);
 
-  isObjectHasProps(data.button, ["title", "href"]);
+  const { button, address, columns } = data;
 
-  if (!Array.isArray(data.address)) {
-    throw new Error("address должен быть массивом");
-  }
+  // проверяем внутренний объект на наличие полей и соответствие типу "объект"
+  isObjectHasProps(button, ["title", "href"]);
 
-  if (!Array.isArray(data.columns)) {
-    throw new Error("columns должен быть массивом");
-  }
+  // проверяем внутренние массивы на наличие полей и соответствие типу "массив"
+  isArrayHasLength(address);
+  isArrayHasLength(columns);
 
-  data.columns.forEach((column) => {
-    isFooterColumnValid(column);
-  });
+  // проверяем внутренние объекты на наличие полей и соответствие типу "объект"
+  columns.forEach((column) => isFooterColumnValid(column));
 };
 
 module.exports = isFooterDataValid;

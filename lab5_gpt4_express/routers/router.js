@@ -55,12 +55,9 @@ const {
   postRegistraciyaData,
 } = require("../controllers/registraciyaDataController");
 
-router
-  .route("/registraciya")
-  .get(getRegistraciyaData)
-  .post(postRegistraciyaData);
+router.route("/registraciya").get(getRegistraciyaData).post(postRegistraciyaData);
 
-  // Blog роутер
+// Blog роутер
 const {
   getBlogData,
   postBlogData,

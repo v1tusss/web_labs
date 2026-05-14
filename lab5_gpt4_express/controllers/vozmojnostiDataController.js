@@ -5,7 +5,7 @@ const {
   postVozmojnostiDataModel,
 } = require("../model/files/vozmojnostiDataModel");
 
-const getVozmojnostiData = (req, res) => {
+const getVozmojnostiData = (req, res, next) => {
   try {
     const data = getVozmojnostiDataModel();
 
@@ -17,14 +17,16 @@ const getVozmojnostiData = (req, res) => {
   }
 };
 
-const postVozmojnostiData = (req, res) => {
+const postVozmojnostiData = (req, res, next) => {
   try {
     const data = req.body;
 
+    // валидируем данные
+    // если невалидны, то бросит ошибку
     isVozmojnostiDataValid(data);
 
+    // если с данными все ок, тогда пишем в файл через модель файлов
     postVozmojnostiDataModel(JSON.stringify(data));
-
     res.status(200).json({
       message: "Данные успешно обновлены",
     });
@@ -35,7 +37,4 @@ const postVozmojnostiData = (req, res) => {
   }
 };
 
-module.exports = {
-  getVozmojnostiData,
-  postVozmojnostiData,
-};
+module.exports = { getVozmojnostiData, postVozmojnostiData };

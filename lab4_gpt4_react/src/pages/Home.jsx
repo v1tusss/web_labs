@@ -8,7 +8,6 @@ import Registraciya from "../components/Registraciya";
 import Blog from "../components/Blog";
 import Footer from "../components/Footer";
 
-
 const Home = () => {
   return (
     <>

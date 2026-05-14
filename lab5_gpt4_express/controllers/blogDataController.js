@@ -5,7 +5,7 @@ const {
   postBlogDataModel,
 } = require("../model/files/blogDataModel");
 
-const getBlogData = (req, res) => {
+const getBlogData = (req, res, next) => {
   try {
     const data = getBlogDataModel();
 
@@ -17,14 +17,16 @@ const getBlogData = (req, res) => {
   }
 };
 
-const postBlogData = (req, res) => {
+const postBlogData = (req, res, next) => {
   try {
     const data = req.body;
 
+    // валидируем данные
+    // если невалидны, то бросит ошибку
     isBlogDataValid(data);
 
+    // если с данными все ок, тогда пишем в файл через модель файлов
     postBlogDataModel(JSON.stringify(data));
-
     res.status(200).json({
       message: "Данные успешно обновлены",
     });
@@ -35,7 +37,4 @@ const postBlogData = (req, res) => {
   }
 };
 
-module.exports = {
-  getBlogData,
-  postBlogData,
-};
+module.exports = { getBlogData, postBlogData };
